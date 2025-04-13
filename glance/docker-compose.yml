@@ -1,0 +1,20 @@
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    volumes:
+      - ./config:/app/config
+      - ./assets:/app/assets
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /mnt:/mnt:ro
+    ports:
+      - 8081:8080
+    env_file: .env
+    labels:
+      glance.name: Glance
+      glance.icon: di:glance-light
+      glance.url: http://192.168.0.105:8081
+      glance.description: Dashboard for self-hosted services
+      glance.id: glance
+      glance.hide: false
+      
