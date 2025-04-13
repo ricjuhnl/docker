@@ -103,7 +103,7 @@
             include-shorts: true
             title: Playlist
             playlists:
-            - PLXXXXXXXXXX # Add your playlist ID, set it to unlisted, set it to add new videos to the top
+            #- PLXXXXXXXXXX # Add your playlist ID, set it to unlisted, set it to add new videos to the top
 
         # - type: group
         #   widgets:
@@ -142,10 +142,6 @@
             - title: SimpleIcons
               shortcut: "!si"
               url: https://simpleicons.org/?q={QUERY}
-
-            - title: Grafana
-              shortcut: "!gf"
-              url: https://hs6.domain.com/grafana/dashboards?query={QUERY}
 
         - type: custom-api
           title: Immich stats
@@ -195,20 +191,23 @@
             # style: compact
             sites:
               - title: Immich
-                url: http://192.168.0.101:2283
+                url: ${IMMICH_URL}
                 icon: di:immich
               - title: Sonarr
-                url: http://192.168.0.101:8989
+                url: ${SONARR_URL}
                 icon: di:sonarr
               - title: Bazarr
-                url: 	http://192.168.0.101:6767
+                url: ${BAZARR_URL}
                 icon: di:bazarr
               - title: Radarr
-                url: http://192.168.0.101:7878
+                url: ${RADARR_URL}
                 icon: di:radarr
               - title: Prowlarr
-                url: http://192.168.0.101:9696
+                url: ${PROWLARR_URL}
                 icon: di:prowlarr
+              - title: QBittorrent
+                url: ${QBIT_URL}
+                icon: di:qbittorrent
 
           - type: monitor
             # allow-insecure: true
@@ -231,9 +230,6 @@
               #- title: Grafana
               #  url: https://hs6.domain.com/grafana/
               #  icon: di:grafana
-              - title: QBittorrent
-                url: http://192.168.0.101:8081
-                icon: di:qbittorrent
               #- title: Code Server
               #  url: https://code.hs.domain.com/
               #  icon: di:code
