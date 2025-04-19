@@ -22,9 +22,6 @@
                 "/app/config":
                   hide: false
                   name: "Host"
-                "/mnt/local/HDD0":
-                  hide: false
-                  name: "HDD0"
               name: Services
 
         - type: calendar

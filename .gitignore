@@ -1,3 +1,2 @@
-.env
-authentik/.env
 glance/.env
+web/www/

@@ -18,6 +18,6 @@ Before running the application, create a `.env` file in the root directory with 
 
 ## Setup Instructions
 
-1. Copy the variables above into a new file named `.env`
+1. Copy the variables above into a new `.env` file
 2. Fill in your values for each variable
 3. Save the file in the same directory as your docker-compose.yml
