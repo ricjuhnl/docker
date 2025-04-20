@@ -74,10 +74,7 @@
             include-shorts: true
             channels:
               - UC_0CVCfC_3iuHqmyClu59Uw # ETA Prime
-              - UCltuKUCkE82ojAtPJy9rFQA # Venom's Tech
               - UCdBK94H6oZT2Q7l0-b0xmMg # Short Circuit
-              - UC8wZnXYK_CGKlBcZp-GxYPA # NeuralNine Python
-              - UCdp6GUwjKscp5ST4M4WgIpw # TechWiser
               - UCg6gPGh8HU2U01vaFCAsvmQ # ChrisTitusTech
               - UCeeFfhMcJa1kjtfZAGskOCA # Tech Linked
               - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
@@ -91,6 +88,7 @@
               - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
               - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
               - UCsBjURrPoezykLs9EqgamOA # Fireship
+              - UCueOZEvMffxjJyVO1fGiJNQ # ZiggoSport
           - type: videos
             cache: 30m
             style: grid-cards
@@ -100,7 +98,7 @@
             include-shorts: true
             title: Playlist
             playlists:
-            #- PLXXXXXXXXXX # Add your playlist ID, set it to unlisted, set it to add new videos to the top
+            - PLQ6aZBKP-rxlUheWxexunIVNcS2Fn__DV # Add your playlist ID, set it to unlisted, set it to add new videos to the top
 
         # - type: group
         #   widgets:
