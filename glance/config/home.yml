@@ -17,12 +17,16 @@
         - type: server-stats
           servers:
             - type: local
+              name: HP-Docker
               hide-mountpoints-by-default: true
               mountpoints:
                 "/app/config":
                   hide: false
                   name: "Host"
-              name: Services
+            - type: remote
+              name: Alpine LXC
+              url: ${ALPINE_URL}
+              token: ${MY_SECRET_TOKEN}
 
         - type: calendar
           first-day-of-week: monday
