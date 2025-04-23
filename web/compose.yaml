@@ -1,8 +1,16 @@
 services:
   web:
+    container_name: website
     image: nginx:latest
     ports:
       - 9000:80
     volumes:
       - ./www:/usr/share/nginx/html
     restart: always
+    labels:
+      glance.name: Website
+      glance.icon: di:globe-light
+      glance.url: http://192.168.0.105:9000
+      glance.description: Selfhosted Website with Auth
+      glance.id: website
+      glance.hide: false

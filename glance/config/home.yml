@@ -56,12 +56,16 @@
 
     - size: full
       widgets:
-    #     - type: group
-    #       widgets:
-    #         - type: hacker-news
-    #         - type: lobsters
-
-      
+        - type: group
+          widgets:            
+            - type: lobsters
+              sort-by: hot
+              tags:
+                - linux
+              limit: 15
+            - type: hacker-news
+              limit: 15
+              collapse-after: 3
 
         - type: docker-containers
           hide-by-default: false
@@ -130,10 +134,6 @@
               shortcut: "!gh"
               url: https://github.com/search?q={QUERY}&type=repositories
 
-            - title: FitGirl
-              shortcut: "!fg"
-              url: https://fitgirl-repacks.site/?s={QUERY}
-
             - title: YouTube
               shortcut: "!yt"
               url: https://www.youtube.com/results?search_query={QUERY}
@@ -141,6 +141,44 @@
             - title: SimpleIcons
               shortcut: "!si"
               url: https://simpleicons.org/?q={QUERY}
+
+        - type: custom-api
+          title: Proxmox Stats
+          cache: 1m
+          url: https://${PROXMOXVE_URL}/api2/json/cluster/resources
+          allow-insecure: true
+          headers:
+            Accept: application/json
+            Authorization: PVEAPIToken=${PROXMOXVE_KEY}
+          template: |
+            <div class="flex flex-column gap-5">
+              <div class="flex justify-between text-center">
+                <div>
+                  {{ $nodes_online := len (.JSON.Array "data.#(type==\"node\")#|#(status==\"online\")#") }}
+                  {{ $nodes_total := len (.JSON.Array "data.#(type==\"node\")#") }}
+                  <div class="color-highlight size-h3">{{ $nodes_online }}/{{ $nodes_total }}</div>
+                  <div class="size-h5 uppercase">Node</div>
+                </div>
+                <div>
+                  {{ $lxc_running := len (.JSON.Array "data.#(type==\"lxc\")#|#(status==\"running\")#|#(template==0)#") }}
+                  {{ $lxc_total := len (.JSON.Array "data.#(type==\"lxc\")#|#(template==0)#") }}
+                  <div class="color-highlight size-h3">{{ $lxc_running }}/{{ $lxc_total }}</div>
+                  <div class="size-h5 uppercase">LXC</div>
+                </div>
+                <div>
+                  {{ $qemu_running := len (.JSON.Array "data.#(type==\"qemu\")#|#(status==\"running\")#|#(template==0)#") }}
+                  {{ $qemu_total := len (.JSON.Array "data.#(type==\"qemu\")#|#(template==0)#") }}
+                  <div class="color-highlight size-h3">{{ $qemu_running }}/{{ $qemu_total }}</div>
+                  <div class="size-h5 uppercase">VM</div>
+                </div>
+                <div>
+                    {{ $storage_available := len (.JSON.Array "data.#(type==\"storage\")#|#(status==\"available\")#") }}
+                    {{ $storage_total := len (.JSON.Array "data.#(type==\"storage\")#") }}
+                    <div class="color-highlight size-h3">{{ $storage_available }}/{{ $storage_total }}</div>
+                    <div class="size-h5 uppercase">Storage</div>
+                </div>
+              </div>
+            </div>
 
         - type: custom-api
           title: Immich stats
@@ -174,12 +212,12 @@
         #     - timezone: Asia/Tokyo
         #       label: Tokyo
 
-        # - type: weather
-        #   location: New York
-        #   units: metric # alternatively "imperial"
-        #   hour-format: 12h # alternatively "24h"
-        #   # Optionally hide the location from being displayed in the widget
-        #   # hide-location: true
+        - type: weather
+          location: Maastricht
+          units: metric # alternatively "imperial"
+          hour-format: 24h # alternatively "24h"
+           # Optionally hide the location from being displayed in the widget
+           # hide-location: true
 
         - type: group
           widgets:
@@ -207,6 +245,9 @@
               - title: QBittorrent
                 url: ${QBIT_URL}
                 icon: di:qbittorrent
+              - title: Jellyfin
+                url: ${JELLYFIN_URL}
+                icon: di:jellyfin
 
           - type: monitor
             # allow-insecure: true
