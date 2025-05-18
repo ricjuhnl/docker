@@ -25,3 +25,5 @@
               <<: *subreddit-settings
             - subreddit: FreeSoftware
               <<: *subreddit-settings
+            - subreddit: Unixporn
+              <<: *subreddit-settings

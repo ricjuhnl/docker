@@ -13,8 +13,10 @@
           repositories:
             - glanceapp/glance
             - immich-app/immich
+            - dani-garcia/vaultwarden
 
         - type: server-stats
+          hide-header: true
           servers:
             - type: local
               name: HP-Docker
@@ -29,6 +31,7 @@
               token: ${MY_SECRET_TOKEN}
 
         - type: calendar
+          hide-header: true
           first-day-of-week: monday
 
         # - type: rss
