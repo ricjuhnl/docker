@@ -4,17 +4,21 @@
 
 Before running the application, create a `.env` file in the root directory with the following configuration:
 
-| Variable | Description |
-|----------|-------------|
-| `MY_SECRET_TOKEN` | Secret token for authentication |
-| `IMMICH_URL` | URL for Immich service |
-| `IMMICH_API_KEY` | API key for Immich service |
-| `GIT_PAT_TOKEN` | GitHub Personal Access Token |
-| `SONARR_URL` | URL for Sonarr service |
-| `RADARR_URL` | URL for Radarr service |
-| `BAZARR_URL` | URL for Bazarr service |
-| `PROWLARR_URL` | URL for Prowlarr service |
-| `QBIT_URL` | URL for qBittorrent service |
+```shell
+MY_SECRET_TOKEN=
+IMMICH_URL=
+IMMICH_API_KEY=
+GIT_PAT_TOKEN=
+SONARR_URL=
+RADARR_URL=
+BAZARR_URL=
+PROWLARR_URL=
+QBIT_URL=
+ALPINE_URL=
+JELLYFIN_URL=
+PROXMOXVE_URL=
+PROXMOXVE_KEY=
+```
 
 ## Setup Instructions
 
